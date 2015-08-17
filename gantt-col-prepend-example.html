@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="http://demos.telerik.com/kendo-ui/gantt/index">
+    
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.2.624/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="http://cdn.kendostatic.com/2015.2.624/styles/kendo.material.min.css" />
+
+    <script src="http://cdn.kendostatic.com/2015.2.624/js/jquery.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2015.2.624/js/kendo.all.min.js"></script>
+</head>
+<body>
+<div id="example">
+    <div id="gantt"></div>
+
+    <script>
+        $(document).ready(function() {
+            
+            var gantt = $("#gantt").kendoGantt({
+                dataSource: [
+                  {
+                    id: 1,
+                    title: "apples",
+                    orderId: 0,
+                    parentId: null,
+                    start: new Date("2015/1/17"),
+                    end: new Date("2015/10/17"),
+                    summary:false,
+                    expanded:false
+                  },
+                  {
+                    id: 2,
+                    orderId: 1,
+                    parentId: null,
+                    title: "banana",
+                    start: new Date("2015/1/17"),
+                    end: new Date("2015/3/17"),
+                    summary:false,
+                    expanded:true
+                  }
+                ],
+                views: [
+                    { type: "year", selected: true }
+                ],
+                columns: [
+                    { field: "title", title: "fruit", width: 220 },
+                    { field: "start", title: "start", width: 80 }
+                ],
+            }).data("kendoGantt");
+
+            $(".k-grid-content tbody[role='rowgroup'] tr[role='row'] td:first-child").prepend("<img href='#' alt='image here'></img>");
+
+        });
+
+        
+    </script>
+</div>
+</body>
+</html>
+
